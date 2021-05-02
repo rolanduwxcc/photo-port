@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // require('../../assets/small/commercial/')
 // function PhotoList({ category }) {
 const PhotoList = ({category}) => {
+
     const [photos] = useState([
         {
         name: 'Grocery aisle',
@@ -102,15 +103,14 @@ const PhotoList = ({category}) => {
 
     const currentPhotos = photos.filter((photo) => photo.category === category);
 
-    console.log(category);
-    console.log('--WLR--')
     return (
         <div>
             <div className="flex-row">
                 {currentPhotos.map((image, i) => (
                     <img
-                        src={`../../assets/small/${category}/${i}.jpg`}
+                        src={require(`../../assets/small/${category}/${i}.jpg`)}
                         // src='../assets/small/food/1.jpg'
+                        // src/assets/small/portraits/3.jpg
                         alt={image.name}
                         className="img-thumbnail mx-1"
                         key={image.name}
@@ -119,6 +119,6 @@ const PhotoList = ({category}) => {
             </div>
         </div>
     );
-}
+};
 
 export default PhotoList;
